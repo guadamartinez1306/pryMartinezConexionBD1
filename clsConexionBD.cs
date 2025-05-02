@@ -17,7 +17,7 @@ namespace pryMartinezConexionBD1
         #region Métodos
         public void ConectarBase(DataGridView GrlM) 
         {
-            string connectionString = "Server=PC240;Database=Comercio;Trusted_Connection=True;";
+            string connectionString = "Server=localhost;Database=Comercio;";
             using (SqlConnection connection = new SqlConnection(connectionString))
                 try
             {
@@ -33,7 +33,7 @@ namespace pryMartinezConexionBD1
                 da.Fill(dt);  // Llenamos el DataTable con los resultados de la consulta
 
                 // Asignamos el DataTable al DataGridView
-                GrlM.DataSource = dt; // dataGridView1 es el nombre de tu grilla
+                GrlM.DataSource = dt; // GrlM es el nombre de mi grilla
 
             }
             catch (Exception ex)
