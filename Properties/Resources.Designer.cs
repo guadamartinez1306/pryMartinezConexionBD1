@@ -63,6 +63,16 @@ namespace pryMartinezConexionBD1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background_compressed {
+            get {
+                object obj = ResourceManager.GetObject("background_compressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChatGPT_Image_1_may_2025__21_22_17 {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image 1 may 2025, 21_22_17", resourceCulture);

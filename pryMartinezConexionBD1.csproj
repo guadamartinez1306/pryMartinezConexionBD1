@@ -47,16 +47,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexionBD.cs" />
+    <Compile Include="clsProductos.cs" />
+    <Compile Include="frmAgregarEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarEliminar.Designer.cs">
+      <DependentUpon>frmAgregarEliminar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmComercio1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmComercio1.Designer.cs">
       <DependentUpon>frmComercio1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarConsultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarConsultar.Designer.cs">
+      <DependentUpon>frmModificarConsultar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAgregarEliminar.resx">
+      <DependentUpon>frmAgregarEliminar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmComercio1.resx">
       <DependentUpon>frmComercio1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarConsultar.resx">
+      <DependentUpon>frmModificarConsultar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChatGPT Image 1 may 2025, 21_22_17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_compressed.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

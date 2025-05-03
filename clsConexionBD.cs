@@ -14,32 +14,24 @@ namespace pryMartinezConexionBD1
 {
     internal class clsConexionBD
     {
-        #region Métodos
-        public void ConectarBase(DataGridView GrlM) 
+
+        #region Conexion
+        private static string ConexionBD = "Server=localhost;Database=Comercio;Trusted_Connection=True;";
+
+        public static SqlConnection ConectarBase()
         {
-            string connectionString = "Server=localhost;Database=Comercio;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-                try
+            SqlConnection conexion = new SqlConnection(ConexionBD);
+            try
             {
-                connection.Open();
-                string query = @"SELECT p.Codigo, p.Nombre, p.Descripcion, p.Precio, p.Stock, c.Nombre AS Categoria
-                                 FROM Productos p
-                                 INNER JOIN Categorias c ON p.CategoriaId = c.Id";
-                SqlCommand command = new SqlCommand(query, connection);
-
-                // Utilizando un DataTable para almacenar los resultados
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                da.Fill(dt);  // Llenamos el DataTable con los resultados de la consulta
-
-                // Asignamos el DataTable al DataGridView
-                GrlM.DataSource = dt; // GrlM es el nombre de mi grilla
+                conexion.Open();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("❌ Error al conectar: " + ex.Message);
             }
+
+            return conexion;
         }
 
         #endregion

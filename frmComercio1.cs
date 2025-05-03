@@ -24,11 +24,51 @@ namespace pryMartinezConexionBD1
             
         }
 
-        clsConexionBD ObjConexion = new clsConexionBD();
+        
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            ObjConexion.ConectarBase(GrlM);
+            
+        }
+
+        private void GrlM_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarEliminar f = new frmAgregarEliminar();
+            f.ShowDialog();
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarEliminar f = new frmAgregarEliminar();
+            f.ShowDialog();
+        }
+
+        private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarEliminar f = new frmAgregarEliminar();
+            f.ShowDialog();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarConsultar f = new frmModificarConsultar();
+            f.ShowDialog();
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarConsultar f = new frmModificarConsultar();
+            f.ShowDialog();
         }
     }
 }
