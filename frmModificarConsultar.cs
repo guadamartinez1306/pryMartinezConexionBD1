@@ -16,5 +16,22 @@ namespace pryMartinezConexionBD1
         {
             InitializeComponent();
         }
+        clsProductos Productos = new clsProductos();
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmComercio f = new frmComercio();
+            f.Show();
+            this.Close();
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            Productos.Consultar(dgvProductos);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Productos.Modificar(Convert.ToDecimal(txtPrecio.Text), txtNombre.Text);
+        }
     }
 }

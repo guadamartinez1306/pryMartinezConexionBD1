@@ -50,6 +50,7 @@
             this.txtDescripcion = new System.Windows.Forms.MaskedTextBox();
             this.txtPrecio = new System.Windows.Forms.MaskedTextBox();
             this.txtNombreAgregar = new System.Windows.Forms.MaskedTextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,7 +66,7 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Font = new System.Drawing.Font("Malgun Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(73, 26);
+            this.groupBox1.Location = new System.Drawing.Point(85, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1062, 686);
             this.groupBox1.TabIndex = 3;
@@ -98,6 +99,7 @@
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblNombreEliminar
             // 
@@ -280,13 +282,27 @@
             this.txtNombreAgregar.Size = new System.Drawing.Size(189, 30);
             this.txtNombreAgregar.TabIndex = 2;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnVolver.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(13, 13);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(88, 31);
+            this.btnVolver.TabIndex = 15;
+            this.btnVolver.Text = "VOLVER";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmAgregarEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::pryMartinezConexionBD1.Properties.Resources.background_compressed;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1208, 739);
+            this.ClientSize = new System.Drawing.Size(1233, 754);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAgregarEliminar";
@@ -328,5 +344,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblNombreEliminar;
         private System.Windows.Forms.MaskedTextBox txtNombreEliminar;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

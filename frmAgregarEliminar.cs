@@ -33,5 +33,17 @@ namespace pryMartinezConexionBD1
         {
             Productos.CargarCombo(cmbCategoria);
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Productos.Eliminar(txtNombreEliminar.Text);
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmComercio f = new frmComercio();
+            f.Show();
+            this.Close();
+        }
     }
 }

@@ -60,6 +60,62 @@ namespace pryMartinezConexionBD1
                 MessageBox.Show("❌ Error al agregar: " + ex.Message);
             }
         }
+
+        public void Eliminar(string Nombre) 
+        {
+            using (SqlConnection connection = clsConexionBD.ConectarBase())
+            try 
+            {
+                    string deleteQuery = "DELETE FROM Productos WHERE Nombre = @nombre";
+                    SqlCommand cmd = new SqlCommand(deleteQuery, connection);
+                    cmd.Parameters.AddWithValue("@nombre", Nombre);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("❌ Producto eliminado.");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ Error al eliminar: " + ex.Message);
+            }
+        }
+
+        public void Consultar(DataGridView dgvProductos) 
+        {
+            using (SqlConnection connection = clsConexionBD.ConectarBase())
+            try 
+            {
+                    string selectQuery = "SELECT P.Nombre, P.Precio, P.Stock, C.Nombre AS Categoria FROM Productos P JOIN Categorias C ON P.CategoriaId = C.Id";
+                    SqlCommand cmd = new SqlCommand(selectQuery, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable tabla = new DataTable();
+                    
+                    adapter.Fill(tabla);
+                    dgvProductos.DataSource = tabla;
+
+            }
+            catch (Exception ex) 
+            {
+               MessageBox.Show("❌ Error al consultar productos: " + ex.Message);
+            }
+        }
+
+        public void Modificar(decimal Precio, string Nombre) 
+        {
+            using (SqlConnection connection = clsConexionBD.ConectarBase())
+                try 
+                {
+                    string updateQuery = "UPDATE Productos SET Precio = @precio WHERE Nombre = @nombre";
+                    SqlCommand cmd = new SqlCommand(updateQuery, connection);
+                    cmd.Parameters.AddWithValue("@precio", Precio);
+                    cmd.Parameters.AddWithValue("@nombre", Nombre);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("🔄 Producto actualizado.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("❌ Error al modificar producto: " + ex.Message);
+                }
+        }
         #endregion
 
         #region Cargar Combo
