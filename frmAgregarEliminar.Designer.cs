@@ -51,17 +51,23 @@
             this.txtPrecio = new System.Windows.Forms.MaskedTextBox();
             this.txtNombreAgregar = new System.Windows.Forms.MaskedTextBox();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarCod = new System.Windows.Forms.Button();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -81,9 +87,9 @@
             this.groupBox4.Controls.Add(this.lblNombreEliminar);
             this.groupBox4.Controls.Add(this.txtNombreEliminar);
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
-            this.groupBox4.Location = new System.Drawing.Point(586, 59);
+            this.groupBox4.Location = new System.Drawing.Point(586, 379);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(435, 295);
+            this.groupBox4.Size = new System.Drawing.Size(435, 124);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Eliminar Producto";
@@ -92,7 +98,7 @@
             // 
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnEliminar.Location = new System.Drawing.Point(229, 196);
+            this.btnEliminar.Location = new System.Drawing.Point(229, 80);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(189, 37);
@@ -104,7 +110,7 @@
             // lblNombreEliminar
             // 
             this.lblNombreEliminar.AutoSize = true;
-            this.lblNombreEliminar.Location = new System.Drawing.Point(14, 127);
+            this.lblNombreEliminar.Location = new System.Drawing.Point(14, 43);
             this.lblNombreEliminar.Name = "lblNombreEliminar";
             this.lblNombreEliminar.Size = new System.Drawing.Size(77, 23);
             this.lblNombreEliminar.TabIndex = 8;
@@ -112,7 +118,7 @@
             // 
             // txtNombreEliminar
             // 
-            this.txtNombreEliminar.Location = new System.Drawing.Point(229, 124);
+            this.txtNombreEliminar.Location = new System.Drawing.Point(229, 40);
             this.txtNombreEliminar.Name = "txtNombreEliminar";
             this.txtNombreEliminar.Size = new System.Drawing.Size(189, 30);
             this.txtNombreEliminar.TabIndex = 3;
@@ -122,12 +128,12 @@
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.dgvProductos);
             this.groupBox3.Controls.Add(this.btnMostrar);
-            this.groupBox3.Location = new System.Drawing.Point(586, 360);
+            this.groupBox3.Location = new System.Drawing.Point(586, 59);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(435, 295);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Mostrar Producto";
+            this.groupBox3.Text = "Mostrar Productos";
             // 
             // dgvProductos
             // 
@@ -298,6 +304,51 @@
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.Controls.Add(this.btnEliminarCod);
+            this.groupBox5.Controls.Add(this.lblCodigo);
+            this.groupBox5.Controls.Add(this.txtCodigo);
+            this.groupBox5.ForeColor = System.Drawing.Color.Black;
+            this.groupBox5.Location = new System.Drawing.Point(586, 531);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(435, 124);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Eliminar Producto por Código";
+            // 
+            // btnEliminarCod
+            // 
+            this.btnEliminarCod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarCod.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnEliminarCod.Location = new System.Drawing.Point(229, 80);
+            this.btnEliminarCod.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarCod.Name = "btnEliminarCod";
+            this.btnEliminarCod.Size = new System.Drawing.Size(189, 37);
+            this.btnEliminarCod.TabIndex = 14;
+            this.btnEliminarCod.Text = "ELIMINAR";
+            this.btnEliminarCod.UseVisualStyleBackColor = false;
+            this.btnEliminarCod.Click += new System.EventHandler(this.btnEliminarCod_Click);
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(14, 43);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(69, 23);
+            this.lblCodigo.TabIndex = 8;
+            this.lblCodigo.Text = "Codigo:";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(229, 40);
+            this.txtCodigo.Mask = "9999999999";
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(189, 30);
+            this.txtCodigo.TabIndex = 3;
+            // 
             // frmAgregarEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -320,6 +371,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -348,5 +401,9 @@
         private System.Windows.Forms.Label lblNombreEliminar;
         private System.Windows.Forms.MaskedTextBox txtNombreEliminar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnEliminarCod;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.MaskedTextBox txtCodigo;
     }
 }

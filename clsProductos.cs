@@ -78,13 +78,30 @@ namespace pryMartinezConexionBD1
                 MessageBox.Show("❌ Error al eliminar producto: " + ex.Message);
             }
         }
+        public void EliminarPorCodigo(string Codigo)
+        {
+            using (SqlConnection connection = clsConexionBD.ConectarBase())
+                try
+                {
+                    string deleteQuery = "DELETE FROM Productos WHERE Codigo = @codigo";
+                    SqlCommand cmd = new SqlCommand(deleteQuery, connection);
+                    cmd.Parameters.AddWithValue("@codigo", Convert.ToInt32(Codigo));
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("❌ Producto eliminado.");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("❌ Error al eliminar producto: " + ex.Message);
+                }
+        }
 
         public void Consultar(DataGridView dgvProductos) 
         {
             using (SqlConnection connection = clsConexionBD.ConectarBase())
             try 
             {
-                    string selectQuery = "SELECT P.Nombre, P.Precio, P.Stock, C.Nombre AS Categoria FROM Productos P JOIN Categorias C ON P.CategoriaId = C.Id";
+                    string selectQuery = "SELECT P.Codigo, P.Nombre, P.Descripcion, P.Precio, P.Stock, C.Nombre AS Categoria FROM Productos P JOIN Categorias C ON P.CategoriaId = C.Id";
                     SqlCommand cmd = new SqlCommand(selectQuery, connection);
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable tabla = new DataTable();
@@ -99,15 +116,35 @@ namespace pryMartinezConexionBD1
             }
         }
 
-        public void Modificar(string Precio, string Nombre) 
+        public void Modificar(string Precio, string Nombre, string Descripcion) 
         {
             using (SqlConnection connection = clsConexionBD.ConectarBase())
                 try 
                 {
-                    string updateQuery = "UPDATE Productos SET Precio = @precio WHERE Nombre = @nombre";
+                    string updateQuery = "UPDATE Productos SET Precio = @precio, Descripcion = @descripcion WHERE Nombre = @nombre";
                     SqlCommand cmd = new SqlCommand(updateQuery, connection);
                     cmd.Parameters.AddWithValue("@precio", Convert.ToInt32(Precio));
+                    cmd.Parameters.AddWithValue("@descripcion", Descripcion);
                     cmd.Parameters.AddWithValue("@nombre", Nombre);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("🔄 Producto actualizado.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("❌ Error al modificar producto: " + ex.Message);
+                }
+        }
+
+        public void ModificarPorCodigo(string Precio, string Codigo, string Descripcion)
+        {
+            using (SqlConnection connection = clsConexionBD.ConectarBase())
+                try
+                {
+                    string updateQuery = "UPDATE Productos SET Precio = @precio, Descripcion = @descripcion WHERE Codigo = @codigo";
+                    SqlCommand cmd = new SqlCommand(updateQuery, connection);
+                    cmd.Parameters.AddWithValue("@precio", Convert.ToInt32(Precio));
+                    cmd.Parameters.AddWithValue("@descripcion", Descripcion);
+                    cmd.Parameters.AddWithValue("@codigo", Convert.ToInt32(Codigo));
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("🔄 Producto actualizado.");
                 }

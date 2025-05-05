@@ -22,7 +22,7 @@ namespace pryMartinezConexionBD1
         private void btnVolver_Click(object sender, EventArgs e)
         {
             frmComercio f = new frmComercio();
-            f.Show();
+            f.ShowDialog();
             this.Close();
         }
 
@@ -35,9 +35,9 @@ namespace pryMartinezConexionBD1
         {
            if(txtNombre.Text == "") 
            {
-                MessageBox.Show("Complete el " + lblPrecio.Text);
-                txtPrecio.Focus();
-                txtPrecio.BackColor = Color.Red;
+                MessageBox.Show("Complete el " + lblNombre.Text);
+                txtNombre.Focus();
+                txtNombre.BackColor = Color.Red;
            }
            else 
            { 
@@ -49,7 +49,16 @@ namespace pryMartinezConexionBD1
                 }
                 else 
                 {
-                    Productos.Modificar(txtPrecio.Text, txtNombre.Text);
+                    if(txtDescripcionNom.Text == "") 
+                    {
+                        MessageBox.Show("Complete la " + lblDescripcionNom.Text);
+                        txtDescripcionNom.Focus();
+                        txtDescripcionNom.BackColor = Color.Red;
+                    }
+                    else 
+                    {
+                        Productos.Modificar(txtPrecio.Text, txtNombre.Text, txtDescripcionNom.Text);
+                    }
                 }
            }
         }
@@ -62,6 +71,38 @@ namespace pryMartinezConexionBD1
         private void txtPrecio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             
+        }
+
+        private void btnModificarCodigo_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text == "")
+            {
+                MessageBox.Show("Complete el " + lblCodigo.Text);
+                txtCodigo.Focus();
+                txtCodigo.BackColor = Color.Red;
+            }
+            else
+            {
+                if (txtPrecioCod.Text == "")
+                {
+                    MessageBox.Show("Complete el " + lblPrecioCod.Text);
+                    txtPrecioCod.Focus();
+                    txtPrecioCod.BackColor = Color.Red;
+                }
+                else
+                {
+                    if(txtDescripcionCod.Text == "") 
+                    {
+                        MessageBox.Show("Complete la " + lblDescripcionCod.Text);
+                        txtDescripcionCod.Focus();
+                        txtDescripcionCod.BackColor = Color.Red;
+                    }
+                    else 
+                    {
+                        Productos.ModificarPorCodigo(txtPrecioCod.Text, txtCodigo.Text, txtDescripcionCod.Text);
+                    }
+                }
+            }
         }
     }
 }

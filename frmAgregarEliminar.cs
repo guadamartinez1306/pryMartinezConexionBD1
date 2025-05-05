@@ -98,7 +98,7 @@ namespace pryMartinezConexionBD1
         private void btnVolver_Click(object sender, EventArgs e)
         {
             frmComercio f = new frmComercio();
-            f.Show();
+            f.ShowDialog();
             this.Close();
         }
 
@@ -111,6 +111,20 @@ namespace pryMartinezConexionBD1
         private void txtDescripcion_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void btnEliminarCod_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text == "")
+            {
+                MessageBox.Show("Complete el " + lblCodigo.Text);
+                txtCodigo.Focus();
+                txtCodigo.BackColor = Color.Red;
+            }
+            else
+            {
+                Productos.EliminarPorCodigo(txtCodigo.Text);
+            }
         }
     }
 }
