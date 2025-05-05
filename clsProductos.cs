@@ -48,7 +48,7 @@ namespace pryMartinezConexionBD1
                     SqlCommand cmd = new SqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Nombre", Nombre);
                     cmd.Parameters.AddWithValue("@Descripcion", Descripcion);
-                    cmd.Parameters.AddWithValue("@Precio", Convert.ToDecimal(Precio));
+                    cmd.Parameters.AddWithValue("@Precio", Convert.ToInt32(Precio));
                     cmd.Parameters.AddWithValue("@Stock", Convert.ToInt32(Stock));
                     cmd.Parameters.AddWithValue("@Categoria", Convert.ToInt32(Categoria)); 
                     cmd.ExecuteNonQuery();
@@ -57,7 +57,7 @@ namespace pryMartinezConexionBD1
             }
             catch (Exception ex) 
             {
-                MessageBox.Show("❌ Error al agregar: " + ex.Message);
+                MessageBox.Show("❌ Error al agregar producto: " + ex.Message);
             }
         }
 
@@ -75,7 +75,7 @@ namespace pryMartinezConexionBD1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Error al eliminar: " + ex.Message);
+                MessageBox.Show("❌ Error al eliminar producto: " + ex.Message);
             }
         }
 
@@ -99,14 +99,14 @@ namespace pryMartinezConexionBD1
             }
         }
 
-        public void Modificar(decimal Precio, string Nombre) 
+        public void Modificar(string Precio, string Nombre) 
         {
             using (SqlConnection connection = clsConexionBD.ConectarBase())
                 try 
                 {
                     string updateQuery = "UPDATE Productos SET Precio = @precio WHERE Nombre = @nombre";
                     SqlCommand cmd = new SqlCommand(updateQuery, connection);
-                    cmd.Parameters.AddWithValue("@precio", Precio);
+                    cmd.Parameters.AddWithValue("@precio", Convert.ToInt32(Precio));
                     cmd.Parameters.AddWithValue("@nombre", Nombre);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("🔄 Producto actualizado.");

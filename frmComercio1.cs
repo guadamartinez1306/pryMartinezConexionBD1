@@ -45,30 +45,35 @@ namespace pryMartinezConexionBD1
         {
             frmAgregarEliminar f = new frmAgregarEliminar();
             f.ShowDialog();
+            this.Close();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgregarEliminar f = new frmAgregarEliminar();
             f.ShowDialog();
+            this.Close();
         }
 
         private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgregarEliminar f = new frmAgregarEliminar();
             f.ShowDialog();
+            this.Close();
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmModificarConsultar f = new frmModificarConsultar();
             f.ShowDialog();
+            this.Close();
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmModificarConsultar f = new frmModificarConsultar();
             f.ShowDialog();
+            this.Close();
         }
     }
 }

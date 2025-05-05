@@ -266,14 +266,16 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(189, 30);
             this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDescripcion_MaskInputRejected);
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(200, 200);
-            this.txtPrecio.Mask = "000000000 ";
+            this.txtPrecio.Mask = "9999999";
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 30);
             this.txtPrecio.TabIndex = 3;
+            this.txtPrecio.ValidatingType = typeof(int);
             // 
             // txtNombreAgregar
             // 
@@ -281,6 +283,7 @@
             this.txtNombreAgregar.Name = "txtNombreAgregar";
             this.txtNombreAgregar.Size = new System.Drawing.Size(189, 30);
             this.txtNombreAgregar.TabIndex = 2;
+            this.txtNombreAgregar.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtNombreAgregar_MaskInputRejected);
             // 
             // btnVolver
             // 

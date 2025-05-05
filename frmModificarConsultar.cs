@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace pryMartinezConexionBD1
 {
@@ -31,7 +33,35 @@ namespace pryMartinezConexionBD1
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Productos.Modificar(Convert.ToDecimal(txtPrecio.Text), txtNombre.Text);
+           if(txtNombre.Text == "") 
+           {
+                MessageBox.Show("Complete el " + lblPrecio.Text);
+                txtPrecio.Focus();
+                txtPrecio.BackColor = Color.Red;
+           }
+           else 
+           { 
+                if(txtPrecio.Text == "") 
+                {
+                    MessageBox.Show("Complete el " + lblPrecio.Text);
+                    txtPrecio.Focus();
+                    txtPrecio.BackColor = Color.Red;
+                }
+                else 
+                {
+                    Productos.Modificar(txtPrecio.Text, txtNombre.Text);
+                }
+           }
+        }
+
+        private void txtNombre_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+           
+        }
+
+        private void txtPrecio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
         }
     }
 }
